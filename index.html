@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GARAGE GYM 4 VETS | Partner Flyer</title>
+    <title>Home Fitness Werx | What's RACK'D?</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,38 +11,90 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f9fafb; /* Pale Green/Light Neutral */
-            -webkit-print-color-adjust: exact; /* Ensures background colors print */
+            background-color: #f9fafb;
+            -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
         .flyer-page {
-            width: 8.5in; /* Standard Letter size width */
-            height: 11in; /* Standard Letter size height */
+            width: 8.5in;
+            height: 11in;
             margin: auto;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background-color: #ffffff; /* White background for the content area */
+            background-color: #ffffff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 1.5in 1in; /* Generous padding for print margins */
+            padding: 1.25in 1.25in; /* Increased padding for more negative space */
             box-sizing: border-box;
         }
+        .rackd-headline {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 5.5rem; /* Slightly larger for impact */
+            line-height: 1;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 2rem; /* More space below headline */
+            letter-spacing: -0.05em; /* Tighten for spray paint feel */
+        }
+        .rackd-letter {
+            display: inline-block;
+            position: relative;
+            transform-origin: bottom center;
+            color: #262626; /* Dark gray for main text */
+            text-shadow:
+                -2px -2px 0px #FF4E50,
+                2px 2px 0px #FC913A,
+                4px 4px 0px #F9D423,
+                -1px 1px 0px rgba(255, 78, 80, 0.5), /* Fainter red for 'worn' effect */
+                1px -1px 0px rgba(252, 145, 58, 0.5); /* Fainter orange for 'worn' effect */
+            transition: transform 0.2s ease-in-out;
+            padding: 0 0.05em; /* Small padding between letters */
+        }
+        .rackd-letter.R-main { /* Specific class for the main R in RACK'D */
+            transform: rotate(-3deg);
+            top: -0.3em; /* Lift R slightly higher */
+            left: -0.05em; /* Adjust left for spacing */
+            z-index: 2; /* Ensure it overlaps if needed */
+        }
+        .rackd-letter.A-main {
+            transform: rotate(2deg);
+        }
+        .rackd-letter.C-main {
+            transform: rotate(-1deg);
+        }
+        .rackd-letter.K-main {
+            transform: rotate(3deg);
+        }
+        .rackd-letter.D-main {
+            transform: rotate(-2deg);
+            top: -0.2em; /* Lift D slightly */
+        }
+        .rackd-letter.question {
+            transform: rotate(1deg);
+            top: 0.1em; /* Adjust question mark relative to D */
+            margin-left: 0.15em; /* More space for question mark */
+            color: #FC913A; /* Orange for the question mark */
+            text-shadow: none; /* No shadow for crispness */
+            z-index: 1; /* Keep behind R if overlapping */
+        }
         .qr-code-placeholder {
-            width: 200px;
+            width: 200px; /* Slightly larger for better scanning */
             height: 200px;
-            background-color: #f3f4f6; /* Gray-100 for QR placeholder */
-            border: 4px solid #FC913A; /* Orange border */
+            background-color: #f3f4f6;
+            border: 4px solid #F9D423;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.875rem; /* text-sm */
-            line-height: 1.25; /* leading-tight */
-            font-weight: 600; /* font-semibold */
+            font-size: 0.875rem;
+            line-height: 1.25;
+            font-weight: 600;
             text-align: center;
-            color: #4b5563; /* Gray-600 */
-            border-radius: 0.5rem; /* rounded-lg */
+            color: #4b5563;
+            border-radius: 0.5rem;
         }
-        /* Media query for print specific styles */
         @media print {
             body {
                 margin: 0;
@@ -50,66 +102,87 @@
             }
             .flyer-page {
                 box-shadow: none;
-                padding: 0.5in 0.5in; /* Adjust for actual print margins */
+                padding: 0.75in; /* Adjusted print padding */
                 width: 100%;
                 height: 100%;
                 page-break-after: always;
+            }
+            .rackd-headline {
+                font-size: 5rem;
             }
         }
     </style>
 </head>
 <body class="text-gray-800 flex items-center justify-center min-h-screen">
     <div class="flyer-page">
-        <!-- Header -->
-        <div class="text-center mb-8">
-            <h1 class="text-5xl font-black text-gray-900 leading-tight">
-                GARAGE GYM <span style="color: #FF4E50;">4</span> VETS
+        <!-- Headline -->
+        <div class="text-center">
+            <h1 class="rackd-headline">
+                <span class="rackd-letter">W</span>
+                <span class="rackd-letter">H</span>
+                <span class="rackd-letter">A</span>
+                <span class="rackd-letter">T</span>
+                <span class="rackd-letter">'</span>
+                <span class="rackd-letter">S</span>
+                <span class="rackd-letter ml-4 R-main">R</span>
+                <span class="rackd-letter A-main">A</span>
+                <span class="rackd-letter C-main">C</span>
+                <span class="rackd-letter K-main">K</span>
+                <span class="rackd-letter D-main">D</span>
+                <span class="rackd-letter question">?</span>
             </h1>
-            <p class="text-xl font-semibold mt-2" style="color: #FC913A;">Empowering Heroes Through Fitness</p>
+            <p class="text-xl md:text-2xl font-bold text-gray-700 mt-6 leading-snug">
+                Your total solution for the ultimate home gym conversion.
+            </p>
         </div>
 
-        <!-- Main Content -->
-        <div class="flex-grow text-center px-4">
-            <h2 class="text-4xl font-bold leading-tight" style="color: #FF4E50;">
-                Partner with Purpose: Reach the Engaged Community
-            </h2>
-            <p class="mt-6 text-lg text-gray-700 leading-relaxed">
-                Are you a fitness equipment manufacturer, supplement distributor, or health service provider looking to connect with a passionate, purpose-driven audience?
-            </p>
-            <p class="mt-4 text-lg text-gray-700 leading-relaxed">
-                **GARAGE GYM 4 VETS** builds inspiring home fitness spaces for our nation's heroes. We offer unique partnership opportunities to authentically showcase your brand to a loyal community that values quality, innovation, and integrity.
+        <!-- Acronym Content -->
+        <div class="flex-grow my-10 px-4">
+            <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                At **Home Fitness Werx**, **RACK'D** isn't just a name – it's our comprehensive method and unwavering ethos for delivering your dream home gym. We promise a seamless, efficient, and personalized experience from concept to first rep.
             </p>
 
-            <ul class="list-none p-0 mt-8 space-y-3 text-lg text-gray-800 font-semibold">
-                <li class="flex items-center justify-center">
-                    <span class="text-xl mr-3" style="color: #FC913A;">&#10003;</span> Dedicated Audience: Engage directly with veterans and home gym enthusiasts.
-                </li>
-                <li class="flex items-center justify-center">
-                    <span class="text-xl mr-3" style="color: #FC913A;">&#10003;</span> Authentic Integration: Seamlessly blend your brand into compelling content.
-                </li>
-                <li class="flex items-center justify-center">
-                    <span class="text-xl mr-3" style="color: #FC913A;">&#10003;</span> Meaningful Impact: Align with a mission that transforms lives through fitness.
-                </li>
-            </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-left">
+                <div>
+                    <h3 class="text-2xl font-bold" style="color: #FF4E50;">R - Neighborly</h3>
+                    <p class="text-lg text-gray-600 mt-1">Approachable, friendly, and respectful; we treat your home as our own.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold" style="color: #FC913A;">A - Caring</h3>
+                    <p class="text-lg text-gray-600 mt-1">Dedicated to understanding your unique needs and fitness goals, ensuring a truly custom solution.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold" style="color: #F9D423;">C - Professional</h3>
+                    <p class="text-lg text-gray-600 mt-1">Delivering exceptional quality, clear communication, and reliable service from start to finish.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold" style="color: #EDE574;">K - Knowledgeable</h3>
+                    <p class="text-lg text-gray-600 mt-1">Experts in fitness equipment, space design, and ergonomic layouts for peak performance.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold" style="color: #E1F5C4; text-shadow: 1px 1px 2px #FC913A;">D - Technical & Done in a Weekend</h3>
+                    <p class="text-lg text-gray-600 mt-1">Precise execution, efficient installation, and the promise of your fully functional gym, often completed in just one weekend!</p>
+                </div>
+            </div>
         </div>
 
-        <!-- QR Code & Call to Action -->
-        <div class="text-center mt-12 mb-8">
-            <p class="text-2xl font-bold text-gray-900" style="color: #FC913A;">
-                Ready to explore the full potential of a partnership?
+        <!-- Call to Action & QR Code -->
+        <div class="text-center mt-12">
+            <p class="text-2xl font-bold text-gray-900" style="color: #FF4E50;">
+                Ready to get RACK'D?
             </p>
-            <div class="flex justify-center mt-6">
+            <div class="flex justify-center mt-8">
                 <div class="qr-code-placeholder">
                     [YOUR QR CODE HERE]<br>Links to:<br>https://gg4v.github.io/GG4V-infograph/
                 </div>
             </div>
-            <p class="mt-4 text-xl font-bold text-gray-800">SCAN FOR OUR INTERACTIVE MEDIA KIT</p>
-            <p class="mt-2 text-md text-gray-600">Discover detailed market insights, audience demographics, and diverse partnership opportunities.</p>
+            <p class="mt-4 text-xl font-bold text-gray-800">SCAN TO TRANSFORM YOUR SPACE</p>
+            <p class="mt-2 text-md text-gray-600">Explore our process, see transformations, and begin your custom gym journey.</p>
         </div>
 
         <!-- Footer -->
         <div class="text-center text-sm text-gray-600 mt-auto pt-8">
-            GARAGE GYM 4 VETS | Home Fitness Werx | Visit Us at Home Gym Con 2025!
+            Home Fitness Werx | GARAGE GYM 4 VETS | Visit Us at Home Gym Con 2025!
             <br>garagegym4vets@gmail.com
         </div>
     </div>
