@@ -27,6 +27,16 @@
             padding: 1.25in 1.25in; /* Increased padding for more negative space */
             box-sizing: border-box;
         }
+        /* Mobile adjustments for padding */
+        @media (max-width: 767px) {
+            .flyer-page {
+                width: 100%;
+                height: auto; /* Allow height to adjust */
+                padding: 1rem; /* More flexible padding for small screens */
+                box-shadow: none; /* No shadow on small screen for cleaner print/view */
+            }
+        }
+
         .rackd-headline-container {
             background-color: #262626; /* Dark gray/black background for headline block */
             padding: 1.5rem 2rem; /* Padding around the headline text */
@@ -34,6 +44,14 @@
             display: inline-block; /* To make background hug the text */
             margin-bottom: 2rem; /* Space below the headline block */
         }
+        /* Mobile adjustments for headline container padding */
+        @media (max-width: 767px) {
+            .rackd-headline-container {
+                padding: 1rem 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
         .rackd-headline {
             font-family: 'Inter', sans-serif;
             font-weight: 900;
@@ -46,18 +64,26 @@
             letter-spacing: -0.05em; /* Tighten for spray paint feel */
             color: #ffffff; /* White letters */
         }
+        /* Mobile adjustments for headline font size */
+        @media (max-width: 767px) {
+            .rackd-headline {
+                font-size: 3rem; /* Smaller for mobile */
+                letter-spacing: -0.02em; /* Less aggressive for smaller text */
+            }
+        }
+
         .rackd-letter {
             display: inline-block;
             position: relative;
             transform-origin: bottom center; /* Pivot point for tilt */
             text-shadow:
-                -2px -2px 0px rgba(255, 78, 80, 0.6),  /* Red offset for worn effect */
-                2px 2px 0px rgba(252, 145, 58, 0.6),   /* Orange offset for worn effect */
-                4px 4px 0px rgba(249, 212, 35, 0.6),   /* Yellow offset for worn effect */
-                -1px 1px 0px rgba(255, 255, 255, 0.1), /* Subtle white inner shadow for pop */
-                1px -1px 0px rgba(255, 255, 255, 0.1); /* Subtle white inner shadow for pop */
+                -2px -2px 0px rgba(255, 78, 80, 0.6),
+                2px 2px 0px rgba(252, 145, 58, 0.6),
+                4px 4px 0px rgba(249, 212, 35, 0.6),
+                -1px 1px 0px rgba(255, 255, 255, 0.1),
+                1px -1px 0px rgba(255, 255, 255, 0.1);
             transition: transform 0.2s ease-in-out;
-            padding: 0 0.05em; /* Small padding between letters */
+            padding: 0 0.05em;
         }
         .rackd-letter.G {
             transform: rotate(-3deg);
@@ -69,11 +95,11 @@
         .rackd-letter.T {
             transform: rotate(-1deg);
         }
-        .rackd-letter.R-main { /* Specific class for the main R in RACK'D */
+        .rackd-letter.R-main {
             transform: rotate(-3deg);
-            top: -0.3em; /* Lift R slightly higher */
-            left: -0.05em; /* Adjust left for spacing */
-            z-index: 2; /* Ensure it overlaps if needed */
+            top: -0.3em;
+            left: -0.05em;
+            z-index: 2;
         }
         .rackd-letter.A-main {
             transform: rotate(2deg);
@@ -86,16 +112,42 @@
         }
         .rackd-letter.D-main {
             transform: rotate(-2deg);
-            top: -0.2em; /* Lift D slightly */
+            top: -0.2em;
         }
         .rackd-letter.question {
             transform: rotate(1deg);
-            top: 0.1em; /* Adjust question mark relative to D */
-            margin-left: 0.15em; /* More space for question mark */
-            color: #FC913A; /* Orange for the question mark */
-            text-shadow: none; /* No shadow for crispness */
-            z-index: 1; /* Keep behind R if overlapping */
+            top: 0.1em;
+            margin-left: 0.15em;
+            color: #FC913A;
+            text-shadow: none;
+            z-index: 1;
         }
+        /* Acronym item styling */
+        .acronym-item {
+            margin-bottom: 1.5rem; /* Space between each acronym point */
+        }
+        .acronym-item h3 {
+            font-size: 1.75rem; /* text-3xl for desktop, text-2xl for mobile */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 0.25rem; /* Small space below letter */
+        }
+        .acronym-item p {
+            font-size: 1rem; /* text-base for desktop, text-sm for mobile */
+            line-height: 1.5; /* leading-relaxed */
+            color: #4b5563; /* gray-600 */
+        }
+        @media (max-width: 767px) {
+            .acronym-item h3 {
+                font-size: 1.5rem; /* Smaller for mobile */
+            }
+            .acronym-item p {
+                font-size: 0.875rem; /* Smaller for mobile */
+            }
+            .acronym-item {
+                margin-bottom: 1rem; /* Less space on mobile */
+            }
+        }
+
         .qr-code-placeholder {
             width: 200px;
             height: 200px;
@@ -111,6 +163,15 @@
             color: #4b5563;
             border-radius: 0.5rem;
         }
+        /* Mobile adjustments for QR code */
+        @media (max-width: 767px) {
+            .qr-code-placeholder {
+                width: 150px;
+                height: 150px;
+                font-size: 0.75rem;
+            }
+        }
+
         @media print {
             body {
                 margin: 0;
@@ -125,6 +186,25 @@
             }
             .rackd-headline {
                 font-size: 5rem;
+            }
+            /* Ensure mobile overrides don't break print layout */
+            .rackd-headline-container {
+                padding: 1.5rem 2rem;
+                margin-bottom: 2rem;
+            }
+            .acronym-item h3 {
+                font-size: 2rem;
+            }
+            .acronym-item p {
+                font-size: 1.125rem;
+            }
+            .acronym-item {
+                margin-bottom: 1.5rem;
+            }
+             .qr-code-placeholder {
+                width: 200px;
+                height: 200px;
+                font-size: 0.875rem;
             }
         }
     </style>
@@ -157,26 +237,26 @@
                 At **Home Fitness Werx**, **RACK'D** isn't just a name – it's our comprehensive method and unwavering ethos for delivering your dream home gym. We promise a seamless, efficient, and personalized experience from concept to first rep.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-left">
-                <div>
-                    <h3 class="text-2xl font-bold" style="color: #FF4E50;">R - Reliable</h3>
-                    <p class="text-lg text-gray-600 mt-1">Consistently delivering on promises, ensuring dependable service and lasting results.</p>
+            <div class="space-y-6 md:space-y-8 text-left">
+                <div class="acronym-item">
+                    <h3 style="color: #FF4E50;">R - Reliable</h3>
+                    <p>Consistently delivering on promises, ensuring dependable service and lasting results.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-bold" style="color: #FC913A;">A - Accountable</h3>
-                    <p class="text-lg text-gray-600 mt-1">Taking ownership of your project from start to finish, with transparent communication and clear progress.</p>
+                <div class="acronym-item">
+                    <h3 style="color: #FC913A;">A - Accountable</h3>
+                    <p>Taking ownership of your project from start to finish, with transparent communication and clear progress.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-bold" style="color: #F9D423;">C - Caring</h3>
-                    <p class="text-lg text-gray-600 mt-1">Dedicated to understanding your unique needs and fitness goals, ensuring a truly custom solution.</p>
+                <div class="acronym-item">
+                    <h3 style="color: #F9D423;">C - Caring</h3>
+                    <p>Dedicated to understanding your unique needs and fitness goals, ensuring a truly custom solution.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-bold" style="color: #EDE574;">K - Knowledgeable</h3>
-                    <p class="text-lg text-gray-600 mt-1">Experts in fitness equipment, space design, and ergonomic layouts for peak performance.</p>
+                <div class="acronym-item">
+                    <h3 style="color: #EDE574;">K - Knowledgeable</h3>
+                    <p>Experts in fitness equipment, space design, and ergonomic layouts for peak performance.</p>
                 </div>
-                <div class="md:col-span-2">
-                    <h3 class="text-2xl font-bold" style="color: #E1F5C4; text-shadow: 1px 1px 2px #FC913A;">D - Done in One Weekend or Less</h3>
-                    <p class="text-lg text-gray-600 mt-1">Efficient, precise installation with the promise of your fully functional gym, completed with minimal disruption to your home.</p>
+                <div class="acronym-item">
+                    <h3 style="color: #E1F5C4; text-shadow: 1px 1px 2px #FC913A;">D - Done in One Weekend or Less</h3>
+                    <p>Efficient, precise installation with the promise of your fully functional gym, completed with minimal disruption to your home.</p>
                 </div>
             </div>
         </div>
