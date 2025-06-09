@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Fitness Werx | What's RACK'D?</title>
+    <title>Home Fitness Werx | GET RACK'D!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f9fafb;
+            background-color: #f9fafb; /* Pale Green/Light Neutral from palette */
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
@@ -27,31 +27,47 @@
             padding: 1.25in 1.25in; /* Increased padding for more negative space */
             box-sizing: border-box;
         }
+        .rackd-headline-container {
+            background-color: #262626; /* Dark gray/black background for headline block */
+            padding: 1.5rem 2rem; /* Padding around the headline text */
+            border-radius: 1rem; /* Rounded corners for the black block */
+            display: inline-block; /* To make background hug the text */
+            margin-bottom: 2rem; /* Space below the headline block */
+        }
         .rackd-headline {
             font-family: 'Inter', sans-serif;
             font-weight: 900;
-            font-size: 5.5rem; /* Slightly larger for impact */
+            font-size: 5.5rem; /* Large size */
             line-height: 1;
             text-align: center;
             display: flex;
             justify-content: center;
             position: relative;
-            margin-bottom: 2rem; /* More space below headline */
             letter-spacing: -0.05em; /* Tighten for spray paint feel */
+            color: #ffffff; /* White letters */
         }
         .rackd-letter {
             display: inline-block;
             position: relative;
-            transform-origin: bottom center;
-            color: #262626; /* Dark gray for main text */
+            transform-origin: bottom center; /* Pivot point for tilt */
             text-shadow:
-                -2px -2px 0px #FF4E50,
-                2px 2px 0px #FC913A,
-                4px 4px 0px #F9D423,
-                -1px 1px 0px rgba(255, 78, 80, 0.5), /* Fainter red for 'worn' effect */
-                1px -1px 0px rgba(252, 145, 58, 0.5); /* Fainter orange for 'worn' effect */
+                -2px -2px 0px rgba(255, 78, 80, 0.6),  /* Red offset for worn effect */
+                2px 2px 0px rgba(252, 145, 58, 0.6),   /* Orange offset for worn effect */
+                4px 4px 0px rgba(249, 212, 35, 0.6),   /* Yellow offset for worn effect */
+                -1px 1px 0px rgba(255, 255, 255, 0.1), /* Subtle white inner shadow for pop */
+                1px -1px 0px rgba(255, 255, 255, 0.1); /* Subtle white inner shadow for pop */
             transition: transform 0.2s ease-in-out;
             padding: 0 0.05em; /* Small padding between letters */
+        }
+        .rackd-letter.G {
+            transform: rotate(-3deg);
+            top: -0.1em;
+        }
+        .rackd-letter.E {
+            transform: rotate(2deg);
+        }
+        .rackd-letter.T {
+            transform: rotate(-1deg);
         }
         .rackd-letter.R-main { /* Specific class for the main R in RACK'D */
             transform: rotate(-3deg);
@@ -81,7 +97,7 @@
             z-index: 1; /* Keep behind R if overlapping */
         }
         .qr-code-placeholder {
-            width: 200px; /* Slightly larger for better scanning */
+            width: 200px;
             height: 200px;
             background-color: #f3f4f6;
             border: 4px solid #F9D423;
@@ -102,7 +118,7 @@
             }
             .flyer-page {
                 box-shadow: none;
-                padding: 0.75in; /* Adjusted print padding */
+                padding: 0.75in;
                 width: 100%;
                 height: 100%;
                 page-break-after: always;
@@ -117,20 +133,19 @@
     <div class="flyer-page">
         <!-- Headline -->
         <div class="text-center">
-            <h1 class="rackd-headline">
-                <span class="rackd-letter">W</span>
-                <span class="rackd-letter">H</span>
-                <span class="rackd-letter">A</span>
-                <span class="rackd-letter">T</span>
-                <span class="rackd-letter">'</span>
-                <span class="rackd-letter">S</span>
-                <span class="rackd-letter ml-4 R-main">R</span>
-                <span class="rackd-letter A-main">A</span>
-                <span class="rackd-letter C-main">C</span>
-                <span class="rackd-letter K-main">K</span>
-                <span class="rackd-letter D-main">D</span>
-                <span class="rackd-letter question">?</span>
-            </h1>
+            <div class="rackd-headline-container">
+                <h1 class="rackd-headline">
+                    <span class="rackd-letter G">G</span>
+                    <span class="rackd-letter E">E</span>
+                    <span class="rackd-letter T">T</span>
+                    <span class="rackd-letter ml-4 R-main">R</span>
+                    <span class="rackd-letter A-main">A</span>
+                    <span class="rackd-letter C-main">C</span>
+                    <span class="rackd-letter K-main">K</span>
+                    <span class="rackd-letter D-main">D</span>
+                    <span class="rackd-letter question">!</span>
+                </h1>
+            </div>
             <p class="text-xl md:text-2xl font-bold text-gray-700 mt-6 leading-snug">
                 Your total solution for the ultimate home gym conversion.
             </p>
@@ -144,24 +159,24 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-left">
                 <div>
-                    <h3 class="text-2xl font-bold" style="color: #FF4E50;">R - Neighborly</h3>
-                    <p class="text-lg text-gray-600 mt-1">Approachable, friendly, and respectful; we treat your home as our own.</p>
+                    <h3 class="text-2xl font-bold" style="color: #FF4E50;">R - Reliable</h3>
+                    <p class="text-lg text-gray-600 mt-1">Consistently delivering on promises, ensuring dependable service and lasting results.</p>
                 </div>
                 <div>
-                    <h3 class="text-2xl font-bold" style="color: #FC913A;">A - Caring</h3>
+                    <h3 class="text-2xl font-bold" style="color: #FC913A;">A - Accountable</h3>
+                    <p class="text-lg text-gray-600 mt-1">Taking ownership of your project from start to finish, with transparent communication and clear progress.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold" style="color: #F9D423;">C - Caring</h3>
                     <p class="text-lg text-gray-600 mt-1">Dedicated to understanding your unique needs and fitness goals, ensuring a truly custom solution.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-bold" style="color: #F9D423;">C - Professional</h3>
-                    <p class="text-lg text-gray-600 mt-1">Delivering exceptional quality, clear communication, and reliable service from start to finish.</p>
                 </div>
                 <div>
                     <h3 class="text-2xl font-bold" style="color: #EDE574;">K - Knowledgeable</h3>
                     <p class="text-lg text-gray-600 mt-1">Experts in fitness equipment, space design, and ergonomic layouts for peak performance.</p>
                 </div>
                 <div class="md:col-span-2">
-                    <h3 class="text-2xl font-bold" style="color: #E1F5C4; text-shadow: 1px 1px 2px #FC913A;">D - Technical & Done in a Weekend</h3>
-                    <p class="text-lg text-gray-600 mt-1">Precise execution, efficient installation, and the promise of your fully functional gym, often completed in just one weekend!</p>
+                    <h3 class="text-2xl font-bold" style="color: #E1F5C4; text-shadow: 1px 1px 2px #FC913A;">D - Done in One Weekend or Less</h3>
+                    <p class="text-lg text-gray-600 mt-1">Efficient, precise installation with the promise of your fully functional gym, completed with minimal disruption to your home.</p>
                 </div>
             </div>
         </div>
